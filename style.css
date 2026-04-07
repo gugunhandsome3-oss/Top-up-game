@@ -1,0 +1,55 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body {
+    background: linear-gradient(135deg, #007bff 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; color: #007bff; }
+.logo span { color: #333; }
+
+header { text-align: center; padding: 50px 20px; color: #333; }
+
+.game-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px; padding: 0 10%; margin-bottom: 50px;
+}
+
+.game-card {
+    background: white; border-radius: 15px; padding: 20px; text-align: center;
+    cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.game-card:hover { transform: translateY(-10px); background: #f0f7ff; }
+.game-card img { width: 80px; margin-bottom: 10px; }
+
+/* Modals */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+
+.auth-box, .modal-content, .receipt-card {
+    background: white; padding: 30px; border-radius: 20px; width: 90%; max-width: 400px;
+}
+
+.form-group label { display: block; margin-top: 15px; font-weight: bold; }
+input, select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 8px; }
+
+.payment-options label { display: block; padding: 10px; background: #f9f9f9; border-radius: 5px; margin-top: 5px; cursor: pointer; }
+
+.btn-primary, .btn-pay {
+    width: 100%; padding: 12px; border: none; border-radius: 8px; 
+    background: #007bff; color: white; font-weight: bold; margin-top: 20px; cursor: pointer;
+}
+
+.btn-close { width: 100%; background: none; border: none; color: #888; margin-top: 10px; cursor: pointer; }
+
+.receipt-card { text-align: center; }
+.check-icon { font-size: 50px; color: #28a745; margin-bottom: 10px; }
+.receipt-details { text-align: left; margin: 20px 0; font-size: 0.9rem; line-height: 1.6; }

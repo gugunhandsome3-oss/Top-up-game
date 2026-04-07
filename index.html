@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamerPay - Top Up Tercepat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Gamer<span>Gugun</span></div>
+        <div class="nav-links">
+            <span id="userDisplay"></span>
+            <button onclick="showSection('authSection')" id="btnLogin">Login/Daftar</button>
+            <button onclick="logout()" id="btnLogout" style="display:none;">Logout</button>
+        </div>
+    </nav>
+
+    <section id="authSection" class="modal-overlay" style="display:none;">
+        <div class="auth-box">
+            <h2 id="authTitle">Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button class="btn-primary" onclick="handleAuth()">Submit</button>
+            <p onclick="toggleAuthMode()" id="toggleText">Belum punya akun? Daftar di sini</p>
+            <button class="btn-close" onclick="closeModal('authSection')">Batal</button>
+        </div>
+    </section>
+
+    <main>
+        <header>
+            <h1>Top-up Game Kilat</h1>
+            <p>Pilih game favoritmu dan selesaikan pembayaran dalam hitungan detik.</p>
+        </header>
+
+        <section class="game-grid">
+            <div class="game-card" onclick="selectGame('Free Fire')">
+                <img src="FF.jpg" alt="FF">
+                <h3>Free Fire</h3>
+            </div>
+            <div class="game-card" onclick="selectGame('Mobile Legends')">
+                <img src="ml.jpg" alt="ML">
+                <h3>Mobile Legends</h3>
+            </div>
+            <div class="game-card" onclick="selectGame('PUBG Mobile')">
+                <img src="fubg.jpg" alt="PUBG">
+                <h3>PUBG Mobile</h3>
+            </div>
+            <div class="game-card" onclick="selectGame('Roblox')">
+                <img src="rb.jpg" alt="Roblox">
+                <h3>Roblox</h3>
+            </div>
+            <div class="game-card" onclick="selectGame('Minecraft')">
+                <img src="mn.png
+                " alt="Minecraft">
+                <h3>Minecraft</h3>
+            </div>
+        </section>
+    </main>
+
+    <section id="paymentSection" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h2 id="targetGame">Top Up Game</h2>
+            <div class="form-group">
+                <label>ID Game / Username</label>
+                <input type="text" id="gameId" placeholder="Contoh: 12345678(01)">
+                
+                <label>Pilih Nominal</label>
+                <select id="nominal">
+                    <option value="Rp 10.000">100 Diamonds / Harga - Rp 10.000</option>
+                    <option value="Rp 50.000">500 Diamonds / Harga - Rp 50.000</option>
+                    <option value="Rp 100.000">1000 Diamonds / Harga - Rp 100.000</option>
+                </select>
+
+                <label>Metode Pembayaran</label>
+                <div class="payment-options">
+                    <label><input type="radio" name="pay" value="QRIS"> QRIS (All Payment)</label>
+                    <label><input type="radio" name="pay" value="Transfer Bank"> Transfer Bank</label>
+                    <label><input type="radio" name="pay" value="E-Wallet"> E-Wallet (Dana/OVO/GoPay)</label>
+                    <label><input type="radio" name="pay" value="Retail"> Alfamart / Indomaret</label>
+                </div>
+            </div>
+            <button class="btn-pay" onclick="processPayment()">Konfirmasi Pembayaran</button>
+            <button class="btn-close" onclick="closeModal('paymentSection')">Kembali</button>
+        </div>
+    </section>
+
+    <section id="receiptSection" class="modal-overlay" style="display:none;">
+        <div class="receipt-card">
+            <div class="check-icon">✓</div>
+            <h2>Transaksi Berhasil!</h2>
+            <hr>
+            <div id="receiptData" class="receipt-details"></div>
+            <button class="btn-primary" onclick="window.print()">Cetak Bukti</button>
+            <button class="btn-close" onclick="closeModal('receiptSection')">Tutup</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
